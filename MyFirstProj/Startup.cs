@@ -21,25 +21,31 @@ namespace MyFirstProj
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //default middleware    -   MIDDLEWARE 1
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
-
-            //app.UseMvcWithDefaultRoute(); //Home Controller -> Index Action Method
-
-            app.UseMvc(routes =>
+            //Middleware defined    -   MIDDLEWARE 2
+            app.Use(async (context, next) =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=About}/{id?}");
+                await context.Response.WriteAsync("First Middleware executed...\n");
+                await next();
+            });
 
-            });    //To make the default route go to About action method in Home Controller
+            //Middleware defined    -   MIDDLEWARE 2
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Second Middleware executed...\n");
+                await next();
+            });
+
+            //default middleware whose response is "Hello World!"
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello World!\n");
+            });
         }
     }
 }
