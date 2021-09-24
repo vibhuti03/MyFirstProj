@@ -12,5 +12,10 @@ namespace MyFirstProj.Controllers
         {
             return View();
         }
+
+        public IActionResult About() //action method with name Index
+        {
+            return View();
+        }
     }
 }

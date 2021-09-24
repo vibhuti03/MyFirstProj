@@ -31,7 +31,15 @@ namespace MyFirstProj
             //    await context.Response.WriteAsync("Hello World!");
             //});
 
-            app.UseMvcWithDefaultRoute(); //Home Controller -> Index Action Method
+            //app.UseMvcWithDefaultRoute(); //Home Controller -> Index Action Method
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=About}/{id?}");
+
+            });    //To make the default route go to About action method in Home Controller
         }
     }
 }
