@@ -32,12 +32,14 @@ namespace MyFirstProj
             //URL -> http://localhost:8356//Home//Index
             //    -> http://localhost:8356//Home//About 
 
-            app.UseMvc(routes => 
-            {
+            //app.UseMvc(routes => 
+            //{
 
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
-            }); 
+            //}); 
+
+            app.UseMvc(); //just to add the functionality of MVCs
 
         }
     }
