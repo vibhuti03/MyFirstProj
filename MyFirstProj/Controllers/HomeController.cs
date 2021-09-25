@@ -6,33 +6,27 @@ using System.Threading.Tasks;
 
 namespace MyFirstProj.Controllers
 {
+    [Route("Home")]
     public class HomeController : Controller
     {
 
-        [Route("")]
-        [Route("Home")]
-        [Route("Home/Index")]
+        [Route("Index")]
+        [Route("~/")]       //for default path to also point to Index()
         public IActionResult Index() //action method with name Index
         {
             return View();
         }
 
-        [Route("Home/About")]
+        [Route("About")]
         public IActionResult About() //action method with name Index
         {
             return View();
         }
 
-        [Route("Home/Details/{id?}")]
+        [Route("Details/{id?}")]
         public int Details(int? id)
         {
             return id??1;   //null coalescing operator
-        }
-
-        [Route("Home/My")]
-        public IActionResult Data() //action method with name Index
-        {
-            return View("~/Views/Home/Index.cshtml");
         }
     }
 }
