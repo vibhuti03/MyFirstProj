@@ -23,10 +23,10 @@ namespace MyFirstProj.Controllers
             return View();
         }
 
-        [Route("Home/Details/{id?}/{val?}")]
-        public int Details(int id, int val)
+        [Route("Home/Details/{id?}")]
+        public int Details(int? id)
         {
-            return (id+val);
+            return id??1;   //null coalescing operator
         }
     }
 }
