@@ -17,5 +17,10 @@ namespace MyFirstProj.Controllers
         {
             return View();
         }
+
+        public int Details(int id)
+        {
+            return id;
+        }
     }
 }

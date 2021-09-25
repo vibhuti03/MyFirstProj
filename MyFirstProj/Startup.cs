@@ -35,7 +35,7 @@ namespace MyFirstProj
             app.UseMvc(routes => 
             {
 
-                routes.MapRoute("default", "{controller=Home}/{action=Index}");
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
             }); 
 
