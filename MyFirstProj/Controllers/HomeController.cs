@@ -28,5 +28,11 @@ namespace MyFirstProj.Controllers
         {
             return id??1;   //null coalescing operator
         }
+
+        [Route("Home/My")]
+        public IActionResult Data() //action method with name Index
+        {
+            return View("~/Views/Home/Index.cshtml");
+        }
     }
 }
