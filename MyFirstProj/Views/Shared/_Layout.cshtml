@@ -4,16 +4,20 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
+    <div class="container">
         <header style="background-color:powderblue">
-            <h5>Header Area</h5>
+            <h5 class="jumbotron">Header Area</h5>
         </header>
         @RenderBody()
         <footer style="background-color:saddlebrown">
             <h5>Footer Area</h5>
         </footer>
     </div>
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
