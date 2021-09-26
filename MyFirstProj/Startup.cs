@@ -28,18 +28,10 @@ namespace MyFirstProj
                 app.UseDeveloperExceptionPage();
             }
 
-            //Convention Based Routing
-            //URL -> http://localhost:8356//Home//Index
-            //    -> http://localhost:8356//Home//About 
-
-            //app.UseMvc(routes => 
-            //{
-
-            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-
-            //}); 
-
-            app.UseMvc(); //just to add the functionality of MVCs
+          app.UseMvc(routes =>
+          {
+              routes.MapRoute("default", "{controller=Home}/{action=Index}");
+          }); 
 
         }
     }
