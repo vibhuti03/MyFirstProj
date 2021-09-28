@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyFirstProj.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,31 @@ namespace MyFirstProj.Controllers
         [Route("~/[controller]")]
         public IActionResult Index() //action method with name Index
         {
-            return View();
+            Student std1 = new Student()
+            {
+                id = 1,
+                name="Vibhuti",
+                age = 21
+            };
+            Student std2 = new Student()
+            {
+                id = 2,
+                name="Firoj",
+                age = 20
+            };
+            Student std3 = new Student()
+            {
+                id = 3,
+                name = "Viboz",
+                age = 2
+            };
+
+            List<Student> std_list = new List<Student>();
+            std_list.Add(std1);
+            std_list.Add(std2);
+            std_list.Add(std3);
+
+            return View(std_list);
         }
 
         public IActionResult About() //action method with name Index
@@ -23,9 +48,15 @@ namespace MyFirstProj.Controllers
         }
 
         [Route("{id?}")]
-        public int Details(int? id)
+        public IActionResult Details(int id)
         {
-            return id??1;   //null coalescing operator
+            Student std3 = new Student()
+            {
+                id = id,
+                name = "Viboz",
+                age = 2
+            };
+            return View(std3);
         }
     }
 }
