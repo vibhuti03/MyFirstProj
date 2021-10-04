@@ -15,48 +15,18 @@ namespace MyFirstProj.Controllers
         [Route("~/[controller]")]
         public IActionResult Index() //action method with name Index
         {
-            Student std1 = new Student()
-            {
-                id = 1,
-                name="Vibhuti",
-                age = 21
-            };
-            Student std2 = new Student()
-            {
-                id = 2,
-                name="Firoj",
-                age = 20
-            };
-            Student std3 = new Student()
-            {
-                id = 3,
-                name = "Viboz",
-                age = 2
-            };
-
-            List<Student> std_list = new List<Student>();
-            std_list.Add(std1);
-            std_list.Add(std2);
-            std_list.Add(std3);
-
-            return View(std_list);
+            return View();
         }
 
-        public IActionResult About() //action method with name Index
+        public IActionResult About() //action method with name About
         {
             return View();
         }
 
         [Route("{id?}")]
-        public IActionResult Details(int id)
+        public int Details(int id)  //action method with name Details
         {
-            Student std3 = new Student()
-            {
-                id = id,
-                name = "Viboz",
-                age = 2
-            };
-            return View(std3);
+            return id;
         }
     }
 }
